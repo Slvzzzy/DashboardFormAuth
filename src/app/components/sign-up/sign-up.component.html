@@ -1,0 +1,47 @@
+<div class="displayTable">
+  <div class="displayTableCell">
+    <div class="authBlock">
+      <h3>Регистрация</h3>
+
+      <div class="formGroup">
+        <input
+          type="email"
+          class="formControl"
+          placeholder="Логин"
+          #userEmail
+          required
+        />
+      </div>
+
+      <div class="formGroup">
+        <input
+          type="password"
+          class="formControl"
+          placeholder="Пароль"
+          #userPwd
+          required
+        />
+      </div>
+
+      <div class="formGroup">
+        <input
+          type="button"
+          class="btn btnPrimary"
+          value="Зарегистрироваться"
+          (click)="authService.signUp(userEmail.value, userPwd.value)"
+        />
+      </div>
+
+      <div class="formGroup">
+        <span class="or"><span class="orInner">или</span></span>
+      </div>
+
+      <div class="redirectToLogin">
+      <span
+      >Уже есть аккаунт?
+        <span class="redirect" routerLink="/sign-in">Войти</span></span
+      >
+      </div>
+    </div>
+  </div>
+

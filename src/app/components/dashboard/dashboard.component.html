@@ -1,0 +1,58 @@
+<!-- Sidebar navigation -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="navbar">
+    <nav class="col-md-2 d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <div class="nav-text-position" *ngFor="let name of navBarDate">
+            {{name.title}}
+            <div *ngFor="let link of name.link">
+              <a [routerLink]="['/' + (link.label | lowercase)]"
+                 routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                {{link.label}}
+              </a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a class="nav-link" (click)="authService.signOut()">
+              <i class="fas fa-sign-out-alt"></i>Log out
+            </a>
+          </div>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+    <!-- Main content -->
+    <div class="main">
+      <h1>Privet</h1>
+    </div>
+    <!-- acc-->
+    <div class="adminbar">
+      <div class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="inner-adjust">
+          <div class="pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">User Profile</h1>
+          </div>
+          <!-- Show user data when logged in -->
+          <div class="row" *ngIf="authService.userData as user">
+            <div class="col-md-12">
+              <div class="media">
+                <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : 'https://lemmy.ml/pictrs/image/4rbc7llENM.jpg'}}"
+                     alt="{{user.displayName}}">
+                <div class="media-body">
+                  <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+                  <p>Email: <strong>{{user.email}}</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
