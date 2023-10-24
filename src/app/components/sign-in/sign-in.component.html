@@ -1,21 +1,21 @@
-<div class="displayTable">
-  <div class="displayTableCell">
-    <div class="authBlock">
+<div class="display-table-background">
+  <div class="display-table-cell">
+    <div class="auth-container">
       <h3>Вход</h3>
-      <div class="formGroup">
+      <div class="form-group">
         <input
           type="text"
-          class="formControl"
+          class="form-control"
           placeholder="Логин"
           #userName
           required
         />
       </div>
 
-      <div class="formGroup">
+      <div class="form-group">
         <input
           type="password"
-          class="formControl"
+          class="form-control"
           placeholder="Пароль"
           #userPassword
           required
@@ -23,7 +23,7 @@
       </div>
 
       <!-- Calling SignIn Api from AuthService -->
-      <div class="formGroup">
+      <div class="form-group">
         <input
           type="button"
           class="btn btnPrimary"
@@ -32,11 +32,11 @@
         />
       </div>
 
-      <div class="formGroup">
-        <span class="or"><span class="orInner">или</span></span>
+      <div class="form-group">
+        <span class="separation-line"><span class="separation-line-inner">или</span></span>
       </div>
 
-      <div class="forgotPassword">
+      <div class="forgot-password">
         <span routerLink="/forgot-password">Забыли пароль?</span>
       </div>
     </div>

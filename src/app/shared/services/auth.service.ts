@@ -43,7 +43,7 @@ export class AuthService {
         this.setUserData(result.user);
         this.afAuth.authState.pipe(take(1)).subscribe((user) => {
           if (user) {
-            this.router.navigate(['dashboard']);
+            this.router.navigate(['main-page']);
           }
         });
       })

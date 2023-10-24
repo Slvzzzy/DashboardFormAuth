@@ -1,0 +1,43 @@
+<!-- Sidebar navigation -->
+<div class="container-fluid">
+  <div class="page-flex-row">
+    <div class="navigation-bar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <div class="nav-text-position" *ngFor="let name of navBarDate">
+            {{name.title}}
+            <div *ngFor="let link of name.link">
+              <a [routerLink]="['/' + (link.label | lowercase)]"
+                 routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                {{link.label}}
+              </a>
+            </div>
+            <div>
+              <a (click)="authService.signOut()">
+                Log out
+              </a>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <!-- Main content -->
+    <div class="main">
+      <div *ngIf="authService.userData as user">
+        <div class="media">
+          <img class="avatar-image" src="{{(user.photoURL) ? user.photoURL : 'https://lemmy.ml/pictrs/image/4rbc7llENM.jpg'}}"
+               alt="{{user.displayName}}">
+          <div class="media-body">
+            <h1><strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+            <p>User ID: <strong>{{user.uid}}</strong></p>
+            <p>Email: <strong>{{user.email}}</strong></p>
+            <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

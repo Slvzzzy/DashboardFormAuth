@@ -15,12 +15,14 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
-
+import { UserProfileComponent} from './components/user-profile/user-profile.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 // routing
 import { AppRoutingModule } from './app-routing.module';
 
 // service
 import { AuthService } from './shared/services/auth.service';
+
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { AuthService } from './shared/services/auth.service';
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
+    UserProfileComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
