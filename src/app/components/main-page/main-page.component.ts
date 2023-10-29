@@ -10,4 +10,7 @@ import {AuthService} from "../../shared/services/auth.service";
 export class MainPageComponent {
   constructor(public authService: AuthService) {}
   public readonly navBarDate = navBarDate;
+  signOut(): void {
+    this.authService.signOut();
+  }
 }

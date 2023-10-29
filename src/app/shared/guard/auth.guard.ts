@@ -1,26 +1,38 @@
-import { Injectable } from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
+  CanLoad,
+  CanMatch,
+  CanMatchFn,
+  Route,
   Router,
-  UrlTree,
+  UrlSegment,
+  UrlTree
 } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { Observable } from 'rxjs';
+import {Observable, } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard {
-  constructor(public authService: AuthService, public router: Router) {}
-
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> | Promise<boolean> | UrlTree | boolean {
+export class AuthGuard implements  CanLoad, CanMatch {
+  constructor(private authService: AuthService, private router: Router) {}
+  canLoad(
+    route: Route,
+    segments: UrlSegment[],
+  ): | boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+    console.log(this.authService.isLoggedIn)
     if (this.authService.isLoggedIn !== true) {
       this.router.navigate(['sign-in']);
     }
     return true;
   }
+  isLoggedIn(): | boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+    const authService = inject(AuthService);
+    const router = inject(Router);
+    if (this.authService.isLoggedIn !== true) {
+      this.router.navigate(['sign-in']);
+    }
+    return true;
+  }
+  canMatch:CanMatchFn = this.isLoggedIn;
 }

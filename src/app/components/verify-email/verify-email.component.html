@@ -4,14 +4,14 @@
     <div class="auth-container">
       <h3>Спасибо за регистрацию</h3>
 
-      <div class="form-group" *ngIf="authService.userData as user">
+      <div class="form-group" *ngIf="getUser() as user">
         <p class="text-center">Мы отправили электронное письмо с подтверждением на <strong>{{user.email}}</strong>.</p>
         <p class="text-center">Пожалуйста, проверьте свою электронную почту и нажмите на ссылку, чтобы подтвердить свой адрес электронной почты.</p>
       </div>
 
       <!-- Calling SendVerificationMail() method using authService Api -->
       <div class="form-group">
-        <button type="button" class="btn btnPrimary" (click)="authService.sendVerificationMail()">
+        <button type="button" class="btn btnPrimary" (click)="sendVerificationMail()">
           <i class="fas fa-redo-alt"></i>
           Выслать повторно письмо для подтверждения
         </button>

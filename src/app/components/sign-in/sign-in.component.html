@@ -1,55 +1,60 @@
-<div class="display-table-background">
-  <div class="display-table-cell">
-    <div class="auth-container">
-      <h3>Вход</h3>
-      <div class="form-group">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Логин"
-          #userName
-          required
-        />
+<form class="display-table-background" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="display-table-cell">
+      <div class="auth-container">
+        <h3>Вход</h3>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Логин"
+            formControlName="email"
+          />
+          <div *ngIf="getFormControl('email').invalid && getFormControl('email').touched">
+            {{getAuthErrorMessage('email')}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Пароль"
+            formControlName="password"
+          />
+          <div *ngIf="getFormControl('password').invalid && getFormControl('password').touched">
+            {{getAuthErrorMessage('password')}}
+          </div>
+        </div>
+
+        <!-- Calling SignIn Api from AuthService -->
+        <div class="form-group">
+          <input
+            type="submit"
+            class="btn btnPrimary"
+            value="Войти"
+            (click)="signInComponent()"
+          />
+        </div>
+
+        <div class="form-group">
+          <span class="separation-line"><span class="separation-line-inner">или</span></span>
+        </div>
+
+        <div class="forgot-password">
+          <span [routerLink]="['/forgot-password']">Забыли пароль?</span>
+        </div>
       </div>
 
-      <div class="form-group">
-        <input
-          type="password"
-          class="form-control"
-          placeholder="Пароль"
-          #userPassword
-          required
-        />
-      </div>
-
-      <!-- Calling SignIn Api from AuthService -->
-      <div class="form-group">
-        <input
-          type="button"
-          class="btn btnPrimary"
-          value="Войти"
-          (click)="authService.signIn(userName.value, userPassword.value)"
-        />
-      </div>
-
-      <div class="form-group">
-        <span class="separation-line"><span class="separation-line-inner">или</span></span>
-      </div>
-
-      <div class="forgot-password">
-        <span routerLink="/forgot-password">Забыли пароль?</span>
-      </div>
-    </div>
-
-    <div class="redirectToLogin">
+      <div class="redirectToLogin">
       <span
       >Нет аккаунта?<span
         class="redirect"
-        routerLink="/register-user"
+        [routerLink]="['/register-user']"
       >
          Зарегистрироваться</span
       ></span
       >
+      </div>
     </div>
-  </div>
-</div>
+</form>
+

@@ -1,47 +1,53 @@
-<div class="display-table-background">
-  <div class="display-table-cell">
-    <div class="auth-container">
-      <h3>Регистрация</h3>
+<form  class="display-table-background" [formGroup]="registerForm" (ngSubmit)="submit()">
+    <div class="display-table-cell">
+      <div class="auth-container">
+        <h3>Регистрация</h3>
 
-      <div class="form-group">
-        <input
-          type="email"
-          class="form-control"
-          placeholder="Логин"
-          #userEmail
-          required
-        />
-      </div>
+        <div class="form-group">
+          <input
+            type="email"
+            formControlName="login"
+            class="form-control"
+            placeholder="Логин"
+          />
+          <div *ngIf="getFormControl('email').invalid && getFormControl('email').touched">
+            {{getAuthErrorMessage('email')}}
+          </div>
+        </div>
 
-      <div class="form-group">
-        <input
-          type="password"
-          class="form-control"
-          placeholder="Пароль"
-          #userPwd
-          required
-        />
-      </div>
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Пароль"
+            formControlName="password"
+          />
+          <div *ngIf="getFormControl('password').invalid && getFormControl('password').touched">
+            {{getAuthErrorMessage('password')}}
+          </div>
+        </div>
 
-      <div class="form-group">
-        <input
-          type="button"
-          class="btn btnPrimary"
-          value="Зарегистрироваться"
-          (click)="authService.signUp(userEmail.value, userPwd.value)"
-        />
-      </div>
+        <div class="form-group">
+          <input
+            type="submit"
+            class="btn btnPrimary"
+            value="Зарегистрироваться"
+            (click)="signUpComponent()"
+          />
+        </div>
 
-      <div class="form-group">
-        <span class="separation-line"><span class="separation-line-inner">или</span></span>
-      </div>
+        <div class="form-group">
+          <span class="separation-line"><span class="separation-line-inner">или</span></span>
+        </div>
 
-      <div class="redirectToLogin">
+        <div class="redirectToLogin">
       <span
       >Уже есть аккаунт?
-        <span class="redirect" routerLink="/sign-in">Войти</span></span
+        <span class="redirect" [routerLink]="['/sign-in']">Войти</span></span
       >
+        </div>
       </div>
     </div>
-  </div>
+</form>
+
 

@@ -9,6 +9,11 @@ import { AuthService } from "../../shared/services/auth.service";
 export class ForgotPasswordComponent  {
 
   constructor(
-    public authService: AuthService
+    private authService: AuthService
   ) { }
+
+  forgotPassword() {
+    //this.authService.(this.registerForm.get('password').value)
+
+  }
 }

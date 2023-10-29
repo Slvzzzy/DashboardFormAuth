@@ -9,6 +9,14 @@ import { AuthService } from "../../shared/services/auth.service";
 export class VerifyEmailComponent{
 
   constructor(
-    public authService: AuthService
+    private authService: AuthService
   ) { }
+
+  getUser() {
+    return  this.authService.userData
+  }
+
+  sendVerificationMail() {
+    this.authService.sendVerificationMail()
+  }
 }

@@ -1,21 +1,21 @@
-import { Injectable, NgZone } from '@angular/core';
+import {Injectable,} from '@angular/core';
 import { User } from './user';
-
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {
   AngularFirestore,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
-import * as auth from 'firebase/auth';
+
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import {take} from "rxjs";
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   userData: any; // Save logged in user data
-
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -51,7 +51,6 @@ export class AuthService {
         window.alert(error.message);
       });
   }
-
   // Sign up with email/password
   signUp(email: string, password: string) {
     return this.afAuth
