@@ -228,7 +228,12 @@ input:-moz-placeholder {
   height: 1px;
   background: #e2e2e2;
 }
-
+.validator-email-password {
+  margin-top: 2px;
+  margin-left: 4px;
+  font-size: 12px;
+  height: 3px;
+}
 .forgot-password {
   text-align: center;
   margin: -12px 0 15px 0;
@@ -244,8 +249,11 @@ input:-moz-placeholder {
   display: inline-block;
   padding-top: 20px;
 }
+.forgot-password :hover {
+  color: #b10505;
+}
 
-.redirectToLogin {
+.redirect-to-login {
   padding: 15px 0 0;
   text-align: center;
   font-size: 14px;
@@ -254,19 +262,16 @@ input:-moz-placeholder {
   color: rgb(0, 0, 0);
 }
 
-.redirectToLogin .redirect {
+.redirect-to-login .redirect {
   cursor: pointer;
   color: #000000;
-  text-decoration: underline;
+  text-decoration: none;
   text-decoration-color: #1e40a4;
   text-decoration-style: solid;
 }
-.redirectToLogin .redirectTwo {
-  cursor: pointer;
-  color: #1478d4;
-  text-decoration: underline;
+.redirect-to-login .redirect:hover {
+  color: #b10505;
 }
-
 /* * Sidebar */
 .sidebar {
   top: 0;

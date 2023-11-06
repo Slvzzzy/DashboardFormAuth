@@ -7,7 +7,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit  {
-  registerForm! : FormGroup;
+  registerForm : FormGroup;
   constructor(
     private authService: AuthService
   ) { }
@@ -25,10 +25,6 @@ export class SignUpComponent implements OnInit  {
   }
   getFormControl(controlName: string): FormControl {
     return this.registerForm.get(controlName) as FormControl
-  }
-  getAuthErrorMessage(fieldName: string) {
-    console.log('form', this.registerForm.get(fieldName))
-    return
   }
   submit() {
     console.log('Form:', this.registerForm)

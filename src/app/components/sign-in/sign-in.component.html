@@ -9,8 +9,22 @@
             placeholder="Логин"
             formControlName="email"
           />
-          <div *ngIf="getFormControl('email').invalid && getFormControl('email').touched">
-            {{getAuthErrorMessage('email')}}
+          <div  class="validator-email-password" *ngIf="getFormControl('email').invalid && getFormControl('email').touched">
+            <small *ngIf="form.get('email').errors.required">
+              Поле пустое
+            </small>
+            <small *ngIf="form.get('email').errors.minlength">
+              Логин должен быть не менее
+              {{form.get('email').errors.minlength.requiredLength}}
+              символов. Сейчас он
+              {{form.get('email').errors.minlength.actualLength}}
+              символа.
+            </small>
+            <small *ngIf="form.get('email').errors.maxlength">
+              Логин должен быть не более
+              {{form.get('email').errors.maxlength.requiredLength}}
+              символов.
+            </small>
           </div>
         </div>
 
@@ -21,8 +35,22 @@
             placeholder="Пароль"
             formControlName="password"
           />
-          <div *ngIf="getFormControl('password').invalid && getFormControl('password').touched">
-            {{getAuthErrorMessage('password')}}
+          <div  class="validator-email-password" *ngIf="getFormControl('password').invalid && getFormControl('password').touched">
+            <small *ngIf="form.get('password').errors.required">
+              Поле пустое
+            </small>
+            <small *ngIf="form.get('password').errors.minlength">
+              Пароль должен быть не менее
+              {{form.get('password').errors.minlength.requiredLength}}
+              символов. Сейчас он
+              {{form.get('password').errors.minlength.actualLength}}
+              символа.
+            </small>
+            <small *ngIf="form.get('password').errors.maxlength">
+              Пароль должен быть не более
+              {{form.get('password').errors.maxlength.requiredLength}}
+              символов.
+            </small>
           </div>
         </div>
 
@@ -30,7 +58,7 @@
         <div class="form-group">
           <input
             type="submit"
-            class="btn btnPrimary"
+            class="btn btn-primary"
             value="Войти"
             (click)="signInComponent()"
           />
@@ -41,19 +69,18 @@
         </div>
 
         <div class="forgot-password">
-          <span [routerLink]="['/forgot-password']">Забыли пароль?</span>
+         <a>
+           <span [routerLink]="['/forgot-password']">Забыли пароль?</span>
+         </a>
         </div>
       </div>
 
-      <div class="redirectToLogin">
-      <span
-      >Нет аккаунта?<span
-        class="redirect"
-        [routerLink]="['/register-user']"
-      >
-         Зарегистрироваться</span
-      ></span
-      >
+      <div class="redirect-to-login">
+      <span>Нет аккаунта?
+        <a>
+         <span class="redirect" [routerLink]="['/register-user']">Зарегистрироваться</span>
+        </a>
+      </span>
       </div>
     </div>
 </form>

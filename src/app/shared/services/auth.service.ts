@@ -1,6 +1,5 @@
 import {Injectable,} from '@angular/core';
 import { User } from './user';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {
   AngularFirestore,
   AngularFirestoreDocument,

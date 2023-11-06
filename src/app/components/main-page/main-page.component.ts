@@ -8,8 +8,8 @@ import {AuthService} from "../../shared/services/auth.service";
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent {
-  constructor(public authService: AuthService) {}
   public readonly navBarDate = navBarDate;
+  constructor(public authService: AuthService) {}
   signOut(): void {
     this.authService.signOut();
   }

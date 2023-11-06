@@ -6,12 +6,26 @@
         <div class="form-group">
           <input
             type="email"
-            formControlName="login"
+            formControlName="email"
             class="form-control"
             placeholder="Логин"
           />
-          <div *ngIf="getFormControl('email').invalid && getFormControl('email').touched">
-            {{getAuthErrorMessage('email')}}
+          <div class="validator-email-password" *ngIf="getFormControl('email').invalid && getFormControl('email').touched">
+            <small *ngIf="registerForm.get('email').errors.required">
+              Поле пустое
+            </small>
+            <small *ngIf="registerForm.get('email').errors.minlength">
+              Логин должен быть не менее
+              {{registerForm.get('email').errors.minlength.requiredLength}}
+              символов. Сейчас он
+              {{registerForm.get('email').errors.minlength.actualLength}}
+              символа.
+            </small>
+            <small *ngIf="registerForm.get('email').errors.maxlength">
+              Логин должен быть не более
+              {{registerForm.get('email').errors.maxlength.requiredLength}}
+              символов.
+            </small>
           </div>
         </div>
 
@@ -22,15 +36,29 @@
             placeholder="Пароль"
             formControlName="password"
           />
-          <div *ngIf="getFormControl('password').invalid && getFormControl('password').touched">
-            {{getAuthErrorMessage('password')}}
+          <div class="validator-email-password" *ngIf="getFormControl('password').invalid && getFormControl('password').touched">
+            <small *ngIf="registerForm.get('password').errors.required">
+              Поле пустое
+            </small>
+            <small *ngIf="registerForm.get('password').errors.minlength">
+              Пароль должен быть не менее
+              {{registerForm.get('password').errors.minlength.requiredLength}}
+              символов. Сейчас он
+              {{registerForm.get('password').errors.minlength.actualLength}}
+              символа.
+            </small>
+            <small *ngIf="registerForm.get('password').errors.maxlength">
+              Пароль должен быть не более
+              {{registerForm.get('password').errors.maxlength.requiredLength}}
+              символов.
+            </small>
           </div>
         </div>
 
         <div class="form-group">
           <input
             type="submit"
-            class="btn btnPrimary"
+            class="btn btn-primary"
             value="Зарегистрироваться"
             (click)="signUpComponent()"
           />
@@ -40,7 +68,7 @@
           <span class="separation-line"><span class="separation-line-inner">или</span></span>
         </div>
 
-        <div class="redirectToLogin">
+        <div class="redirect-to-login">
       <span
       >Уже есть аккаунт?
         <span class="redirect" [routerLink]="['/sign-in']">Войти</span></span

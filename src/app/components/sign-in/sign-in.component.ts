@@ -27,25 +27,13 @@ export class SignInComponent implements OnInit {
     console.log('Form:', this.form)
     console.log('UserInfo:', this.form.getRawValue())
   }
-  getAuthErrorMessage(fieldName: string) {
-    console.log('form', this.form.get(fieldName))
-    if (this.form.get(fieldName)?.hasError('required')) {
-      return `Поле ${fieldName} пустое`;
-    }
-    if (this.form.get(fieldName)?.hasError('minlength')) {
-      return `${fieldName} слишком короткий`;
-    }
-    if (this.form.get(fieldName)?.hasError('maxlength')) {
-      return `${fieldName} слишком длинный`;
-    }
-    return 'error'
-  }
   getFormControl(controlName: string): FormControl {
     return this.form.get(controlName) as FormControl
   }
 
   signInComponent() {
     this.authService.signIn(this.form.get('email').value, this.form.get('password').value)
-    console.log(this.form.get('email'))
+    console.log(typeof(this.form.get('email').value))
+    console.log((this.form.get('email').value))
   }
 }
