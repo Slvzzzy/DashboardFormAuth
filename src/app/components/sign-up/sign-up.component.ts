@@ -23,9 +23,6 @@ export class SignUpComponent implements OnInit  {
         Validators.maxLength(20)])
     })
   }
-  getFormControl(controlName: string): FormControl {
-    return this.registerForm.get(controlName) as FormControl
-  }
   submit() {
     console.log('Form:', this.registerForm)
     console.log('UserInfo:', this.registerForm.getRawValue())

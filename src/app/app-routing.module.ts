@@ -7,9 +7,10 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
 // route guard
-import { AuthGuard } from './shared/guard/auth.guard';
+import { authGuard } from './shared/guard/auth.guard';
 import {UserProfileComponent} from "./components/user-profile/user-profile.component";
 import {MainPageComponent} from "./components/main-page/main-page.component";
+
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
   { path: 'sign-in', component: SignInComponent },
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'user-profile', component: UserProfileComponent },
-  { path: 'main-page', component: MainPageComponent, canMatch: [AuthGuard] },
+  { path: 'main-page', component: MainPageComponent, canActivate: [authGuard] },
   { path: '**', redirectTo: 'sign-in', pathMatch: 'full' },
 
 ];

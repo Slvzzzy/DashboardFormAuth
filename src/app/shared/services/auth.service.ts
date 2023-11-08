@@ -14,6 +14,7 @@ import {take} from "rxjs";
   providedIn: 'root',
 })
 export class AuthService {
+    hasAccess: any;
   userData: any; // Save logged in user data
   constructor(
     public afs: AngularFirestore, // Inject Firestore service

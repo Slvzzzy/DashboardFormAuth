@@ -21,9 +21,6 @@ export class ForgotPasswordComponent implements OnInit {
         Validators.maxLength(30)])
     })
   }
-  getFormControl(controlName: string): FormControl {
-    return this.forgotPasswordForm.get(controlName) as FormControl
-  }
   forgotPassword() {
     this.authService.forgotPassword(this.forgotPasswordForm.get('email').value)
   }

@@ -10,7 +10,7 @@
             class="form-control"
             placeholder="Логин"
           />
-          <div class="validator-email-password" *ngIf="getFormControl('email').invalid && getFormControl('email').touched">
+          <div class="validator-email-password" *ngIf="registerForm.get('email').invalid && registerForm.get('email').touched">
             <small *ngIf="registerForm.get('email').errors.required">
               Поле пустое
             </small>
@@ -36,7 +36,7 @@
             placeholder="Пароль"
             formControlName="password"
           />
-          <div class="validator-email-password" *ngIf="getFormControl('password').invalid && getFormControl('password').touched">
+          <div class="validator-email-password" *ngIf="registerForm.get('password').invalid && registerForm.get('password').touched">
             <small *ngIf="registerForm.get('password').errors.required">
               Поле пустое
             </small>

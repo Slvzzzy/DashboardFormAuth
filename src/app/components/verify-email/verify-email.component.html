@@ -4,7 +4,7 @@
     <div class="auth-container">
       <h3>Спасибо за регистрацию</h3>
 
-      <div class="form-group" *ngIf="getUser() as user">
+      <div class="form-group" *ngIf="getUser as user">
         <p class="text-center">Мы отправили электронное письмо с подтверждением на <strong>{{user.email}}</strong>.</p>
         <p class="text-center">Пожалуйста, проверьте свою электронную почту и нажмите на ссылку, чтобы подтвердить свой адрес электронной почты.</p>
       </div>

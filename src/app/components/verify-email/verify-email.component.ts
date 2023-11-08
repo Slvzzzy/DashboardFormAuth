@@ -1,5 +1,6 @@
 import { Component,} from '@angular/core';
 import { AuthService } from "../../shared/services/auth.service";
+import {User} from "../../shared/services/user";
 
 @Component({
   selector: 'app-verify-email',
@@ -12,7 +13,7 @@ export class VerifyEmailComponent{
     private authService: AuthService
   ) { }
 
-  getUser() {
+  get getUser(): User {
     return  this.authService.userData
   }
 

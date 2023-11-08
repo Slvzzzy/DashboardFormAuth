@@ -27,10 +27,6 @@ export class SignInComponent implements OnInit {
     console.log('Form:', this.form)
     console.log('UserInfo:', this.form.getRawValue())
   }
-  getFormControl(controlName: string): FormControl {
-    return this.form.get(controlName) as FormControl
-  }
-
   signInComponent() {
     this.authService.signIn(this.form.get('email').value, this.form.get('password').value)
     console.log(typeof(this.form.get('email').value))
