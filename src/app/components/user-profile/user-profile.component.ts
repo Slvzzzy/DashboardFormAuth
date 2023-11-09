@@ -9,7 +9,7 @@ import {User} from "../../shared/services/user";
 export class UserProfileComponent {
   constructor(private authService: AuthService) {}
   public readonly navBarDate = navBarDate;
-  get getUser(): User {
+  get user(): User {
     return  this.authService.userData
   }
   signOut() {

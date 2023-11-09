@@ -23,7 +23,7 @@
     </div>
     <!-- Main content -->
     <div class="main">
-      <div *ngIf="getUser as user">
+      <div *ngIf="user as user">
         <div class="media">
           <img class="avatar-image" src="{{(user.photoURL) ? user.photoURL : 'https://lemmy.ml/pictrs/image/4rbc7llENM.jpg'}}"
                alt="{{user.displayName}}">

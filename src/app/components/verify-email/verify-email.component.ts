@@ -13,7 +13,7 @@ export class VerifyEmailComponent{
     private authService: AuthService
   ) { }
 
-  get getUser(): User {
+  get user(): User {
     return  this.authService.userData
   }
 
