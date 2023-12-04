@@ -1,0 +1,79 @@
+<!-- Sidebar navigation -->
+<div class="container-fluid">
+  <div class="page-flex-row">
+    <div class="navigation-bar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <div class="nav-text-position" *ngFor="let name of navBarDate">
+            {{name.title}}
+            <div *ngFor="let link of name.link">
+              <a [routerLink]="['/' + (link.label | lowercase)]"
+                 routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                {{link.label}}
+              </a>
+            </div>
+            <div>
+              <a (click)="signOut()">
+                Log out
+              </a>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <!-- Main content -->
+    <div class="main">
+      <div class="table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> № </th>
+            <td mat-cell *matCellDef="let element">
+                      {{dataSource.data.indexOf(element)+1}}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="login">
+            <th mat-header-cell *matHeaderCellDef> Login </th>
+            <td mat-cell *matCellDef="let element"> {{element.login}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="img">
+            <th mat-header-cell *matHeaderCellDef> Img </th>
+            <td mat-cell *matCellDef="let element">
+              <img class="image-github-profile" src="{{element.avatar_url}} ">
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="url">
+            <th mat-header-cell *matHeaderCellDef> URL </th>
+            <td mat-cell *matCellDef="let element"> <a>{{element.html_url}}</a> </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+        </table>
+        <mat-paginator #paginator
+                       [pageSize]="7"
+                       [pageSizeOptions]="[7]"
+                       [showFirstLastButtons]="true">
+        </mat-paginator>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+

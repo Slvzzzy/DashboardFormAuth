@@ -10,6 +10,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { authGuard } from './shared/guard/auth.guard';
 import {UserProfileComponent} from "./components/user-profile/user-profile.component";
 import {MainPageComponent} from "./components/main-page/main-page.component";
+import {RestApiComponent} from "./components/rest-api/rest-api.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'user-profile', component: UserProfileComponent },
+  { path: 'rest-api', component: RestApiComponent },
   { path: 'main-page', component: MainPageComponent, canActivate: [authGuard] },
   { path: '**', redirectTo: 'sign-in', pathMatch: 'full' },
 

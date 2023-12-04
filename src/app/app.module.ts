@@ -24,6 +24,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 // service
 import { AuthService } from './shared/services/auth.service';
+import {RestApiModule} from "./rest-api.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -47,7 +50,10 @@ import { AuthService } from './shared/services/auth.service';
     AngularFireDatabaseModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RestApiModule,
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
