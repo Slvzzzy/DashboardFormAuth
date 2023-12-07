@@ -6,7 +6,7 @@ export const navBarDate = [
         label: "User-Profile",
       },
       {
-        label: "Rest-api",
+        label: "Users",
       }
       ]},
 ]

@@ -24,7 +24,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 // service
 import { AuthService } from './shared/services/auth.service';
-import {RestApiModule} from "./rest-api.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
 
@@ -51,7 +50,6 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    RestApiModule,
     BrowserAnimationsModule,
     HttpClientModule
   ],

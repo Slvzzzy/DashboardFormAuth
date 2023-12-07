@@ -27,25 +27,16 @@ table {
   height: 60px;
   border-radius: 50px;
 }
-.mat-column-position  {
+.fs-20-ta-center {
+  font-size: 20px;
+  text-align: center
+}
+.mat-column-position,
+.mat-column-login,
+.mat-column-img,
+.mat-column-id,
+.mat-column-url  {
   font-size: 20px;
   text-align: center;
-}
-.mat-column-login {
-  text-align: center;
-  font-size: 20px;
-}
-.mat-column-img {
-  text-align: center;
-  font-size: 20px;
-}
-.mat-column-id {
-  font-size: 20px;
 }
 
-.mat-column-url {
-  width: 32px;
-  font-size: 20px;
-  text-align: center;
-  font-weight: bold;
-}
