@@ -1,12 +1,12 @@
 import {AfterViewInit, Component, OnDestroy, ViewChild} from '@angular/core';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {UsersService} from "../../shared/services/users.service";
-import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
-import {LowerCasePipe, NgForOf, NgIf} from "@angular/common";
-import {RouterLink, RouterLinkActive} from "@angular/router";
+import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import { AuthService } from '../../shared/services/auth.service';
 import {navBarDate} from "../dashboard/navbarData";
 import {Subject, takeUntil} from "rxjs";
+import {MatTableDataSource, MatTableModule} from "@angular/material/table";
+import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
+import {LowerCasePipe, NgForOf, NgIf} from "@angular/common";
 
 export interface userData {
   login: string;
@@ -14,6 +14,11 @@ export interface userData {
   id: number;
   url: string;
   img: string;
+  avatar_url? : string;
+  location? : string;
+  name?: string;
+  company?: string;
+  blog?: string;
 }
 
 const ELEMENT_DATA: userData[] = []
@@ -24,7 +29,7 @@ const ELEMENT_DATA: userData[] = []
   styleUrls: ['./users-table.component.css'],
   standalone: true,
   providers: [UsersService],
-  imports: [MatTableModule, MatPaginatorModule, LowerCasePipe, NgForOf, NgIf, RouterLinkActive, RouterLink],
+  imports: [MatTableModule, MatPaginatorModule, LowerCasePipe, NgForOf, NgIf, RouterLinkActive, RouterLink, RouterOutlet],
 })
 export class UsersTableComponent implements AfterViewInit, OnDestroy {
   public readonly navBarDate = navBarDate;
@@ -32,7 +37,7 @@ export class UsersTableComponent implements AfterViewInit, OnDestroy {
   dataSource = new MatTableDataSource<userData>(ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator: MatPaginator;
   pageIndex: number;
-private destroy$ = new Subject<void>()
+  private destroy$ = new Subject<void>()
   constructor
   (private userService: UsersService,
    private authService: AuthService

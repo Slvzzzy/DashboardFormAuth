@@ -1,4 +1,3 @@
-
 <!-- Sidebar navigation -->
 <div class="container-fluid">
   <div class="page-flex-row">
@@ -24,21 +23,20 @@
     </div>
     <!-- Main content -->
     <div class="main">
-      <div *ngIf="user as user">
-        <div class="media">
-          <img class="avatar-image" src="{{(user.photoURL) ? user.photoURL : 'https://lemmy.ml/pictrs/image/4rbc7llENM.jpg'}}"
-               alt="{{user.displayName}}">
-          <div class="media-body">
-            <h1><strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-            <p>User ID: <strong>{{user.uid}}</strong></p>
-            <p>Email: <strong>{{user.email}}</strong></p>
-            <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
-          </div>
+      <div  *ngIf = '(userProfile$ | async) as userProfile' >
+        <div class="media-body">
+          <img class="avatar-image" src='{{userProfile.avatar_url}}' alt="userPhoto">
+            <p>User name: <strong>{{userProfile.name}}</strong></p>
+            <p>Location: <strong>{{(userProfile.location) ? userProfile.location: 'Unknown'}}</strong></p>
+            <p>Github profile: <strong>{{userProfile.url}}</strong></p>
+            <p>Company: <strong>{{(userProfile.company) ? userProfile.company: 'Unknown'}}</strong></p>
+            <p>Blog: <strong>{{(userProfile.blog) ? userProfile.blog: 'Unknown'}}</strong></p>
+            <button type="button"  mat-raised-button color="primary" routerLink="/users">
+              Back
+            </button>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
 

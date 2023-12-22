@@ -55,6 +55,7 @@ h6 {
   flex-direction: row;
   flex-wrap: nowrap;
 }
+
 .media-body h1 {
   font-weight: 300;
   margin-bottom: 20px;
@@ -65,13 +66,16 @@ h6 {
 }
 
 .media-body p {
-  margin-bottom: 10px;
+  margin-top: 20px;
   font-weight: 300;
+  font-size: 28px;
 }
 
 .media-body p strong {
-  margin-bottom: 10px;
-  font-weight: 600;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 28px;
+  color: #02245c;
 }
 
 .px-logo {
@@ -138,7 +142,6 @@ label {
   width: 180px;
   border-radius: 50%;
   border: 2px solid #0543b1;
-  margin-top: 20px;
   box-shadow: 0 5px 20px rgb(57, 143, 220);
 
 }
