@@ -29,6 +29,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // service
 import { AuthService } from './shared/services/auth.service';
+import {SafePipe} from "./safe.pipe";
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { AuthService } from './shared/services/auth.service';
     UserProfileComponent,
     MainPageComponent,
     UserInfoComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,7 @@ import { AuthService } from './shared/services/auth.service';
     BrowserAnimationsModule,
     HttpClientModule,
     MatButtonModule,
-    UsersTableComponent
+    UsersTableComponent,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

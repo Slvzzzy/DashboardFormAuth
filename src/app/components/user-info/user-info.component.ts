@@ -6,6 +6,7 @@ import {UsersService} from "../../shared/services/users.service";
 import {Observable, switchMap} from "rxjs";
 import {userData} from "../users-table/users-table.component";
 import {ActivatedRoute,} from "@angular/router";
+import * as url from "url";
 
 @Component({
   selector: 'app-user-info',

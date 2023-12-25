@@ -25,10 +25,10 @@
     <div class="main">
       <div  *ngIf = '(userProfile$ | async) as userProfile' >
         <div class="media-body">
-          <img class="avatar-image" src='{{userProfile.avatar_url}}' alt="userPhoto">
+          <img class="avatar-image" [src]='userProfile.avatar_url | safe: "url"' alt="userPhoto">
             <p>User name: <strong>{{userProfile.name}}</strong></p>
             <p>Location: <strong>{{(userProfile.location) ? userProfile.location: 'Unknown'}}</strong></p>
-            <p>Github profile: <strong>{{userProfile.url}}</strong></p>
+            <p>Github profile: <strong>{{userProfile.url}} | </strong></p>
             <p>Company: <strong>{{(userProfile.company) ? userProfile.company: 'Unknown'}}</strong></p>
             <p>Blog: <strong>{{(userProfile.blog) ? userProfile.blog: 'Unknown'}}</strong></p>
             <button type="button"  mat-raised-button color="primary" routerLink="/users">
