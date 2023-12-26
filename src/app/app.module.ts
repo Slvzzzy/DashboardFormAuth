@@ -10,6 +10,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { ReactiveFormsModule } from '@angular/forms';
 import {FormsModule,} from "@angular/forms";
 import { environment } from '../environments/enviorment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClientModule} from "@angular/common/http";
+import {MatButtonModule} from "@angular/material/button";
 
 // components
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -19,14 +22,14 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { UserProfileComponent} from './components/user-profile/user-profile.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
+import {UserInfoComponent} from "./components/user-info/user-info.component";
+import {UsersTableComponent} from "./components/users-table/users-table.component";
 // routing
 import { AppRoutingModule } from './app-routing.module';
 
 // service
 import { AuthService } from './shared/services/auth.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {HttpClientModule} from "@angular/common/http";
-
+import {SafePipe} from "./safe.pipe";
 
 
 @NgModule({
@@ -38,7 +41,9 @@ import {HttpClientModule} from "@angular/common/http";
     ForgotPasswordComponent,
     VerifyEmailComponent,
     UserProfileComponent,
-    MainPageComponent
+    MainPageComponent,
+    UserInfoComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,9 @@ import {HttpClientModule} from "@angular/common/http";
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    UsersTableComponent,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
